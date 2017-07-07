@@ -1,0 +1,31 @@
+--Write a query to retrieve a list of the product names and the total revenue calculated as the sum of the LineTotal from the SalesLT.SalesOrderDetail table, with the results sorted in descending order of total revenue. Make sure to use the aliases provided, and default column names elsewhere.
+-- select the Name column and use the appropriate function with the appropriate column
+SELECT Name, SUM(LineTotal) AS TotalRevenue
+FROM SalesLT.SalesOrderDetail AS SOD
+-- use the appropriate join
+JOIN SalesLT.Product AS P 
+-- join based on ProductID
+ON SOD.ProductID = P.ProductID
+GROUP BY P.Name
+ORDER BY TotalRevenue DESC;
+
+--Modify the previous query to include sales totals for products that have a list price of more than 1000. Make sure to use the aliases provided, and default column names elsewhere.
+SELECT Name, SUM(LineTotal) AS TotalRevenue
+FROM SalesLT.SalesOrderDetail AS SOD
+JOIN SalesLT.Product AS P 
+ON SOD.ProductID = P.ProductID
+-- filter as per the instructions
+WHERE ListPrice > 1000
+GROUP BY P.Name
+ORDER BY TotalRevenue DESC;
+
+--Modify the previous query to only include products with total sales greater than 20000. Make sure to use the aliases provided, and default column names elsewhere.
+SELECT Name, SUM(LineTotal) AS TotalRevenue
+FROM SalesLT.SalesOrderDetail AS SOD
+JOIN SalesLT.Product AS P 
+ON SOD.ProductID = P.ProductID
+WHERE P.ListPrice > 1000
+GROUP BY P.Name
+-- add having clause as per instructions
+HAVING SUM(LineTotal) > 20000
+ORDER BY TotalRevenue DESC;
