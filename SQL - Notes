@@ -1,0 +1,73 @@
+ORDERBY sorts the results
+TOP give the limited number or percentage of results in the table as specified. Used next to SELECT.
+OFFSET 10 ROWS leaves the first 10 rows and pics the data after that. 
+FETCH FIRST/NEXT 10 ROWS ONLY gives the next 10 rows data
+FR% gives the rows which starts with FR and %58 gives the rows which ends with 58 and %RT% gives the rows which has RT in it. ‘FR-_(0-9)(0-9)_-(0-9)’ gives FR-R92B-4
+
+Inner Join
+
+SELECT table1.table.column AS name, table2.table.column AS Category
+FROM table1.table JOIN Table2.table 
+ON table1.table.id = table2.table.id
+
+Outer Join 
+
+has LEFT, RIGHT and FULL as syntax. LEFT OUTER JOIN takes all the details from left table and get the related details from the right table.  
+
+CROSS JOIN
+
+Just gets all the data from 2 tables.
+
+Self Join
+
+Gets the data from the same table
+
+UNION gets the data from two or more tables vertically and should have same number of columns. UNION ALL removes the duplicates. INTERSECT get the common data in two tables vertically and except gets the data from one table which is not in the other table.
+
+ISNUMERIC(101.11) only selects the numeric rows and if =1 is there it means true and 0 means false
+IFF(ListPrice > 50, ‘High’, ‘Low’)
+
+CHOOSE (ProductcategoryID, ‘Bikes’, ‘Components’, ‘XBox’, ‘PS4’) AS category makes the productcategoryid 1 as bikes, 2 as components, 3 as xbox and so on. If there are more than cateogoryids than specified in the function it returns NULL
+
+COUNT(productid) gives the number of items. COUNT(DISTINCT, ProductID) gives the distinct number of productids
+Aggregate means total
+
+
+GROUP BY groups the aggregate data
+HAVING in GROUP BY filters the data
+
+
+Temp Table is temp table created with in the session and has # infront of the name CREATE TABLE #tmprocucts. For Global ## will be there
+
+DECLARE @varProduct = value  variables are declared 
+
+CREATE FUNCTION FunctionName (@ColumnName)
+ creates a function which can be used later
+
+Derived table is a sub query from where the main query takes the data and the derived table disappears as soon as the data in taken by the main query
+https://www.youtube.com/watch?v=YRdaGf4cZ0o
+
+Common Table Expression starts with WITH and can be recursive
+https://www.youtube.com/watch?v=ybxsm8qnnL8
+
+GROUP BY GROUP SETS (Name, Size, ())
+
+ROLLUP rolls up the data from bottom up
+CUBE does group by all combinations.
+
+PIVOT or UNPIVOT (ProductID/ProductIDCount For Color in ( x, y, z)
+
+INSERT INTO is used to insert rows to the table.
+
+SET IDENTITY INSERT ON; can write the identity columns (Preliminary Key), you have to turn off the IDENTITY INSERT OFF;
+
+UPDATE TableName
+SET ColumnName = value
+Where
+
+EXEC is used to run stored procedures
+
+
+BEGIN TRANSACTION starts the transactions. Like inserting in multiple column, if one fails nothing else will be updated
+COMMIT TRANSACTION commits the transactions once they are all true
+ROLLBACK TRANSACTION cancels the transaction. Rolls back all the transactions.
